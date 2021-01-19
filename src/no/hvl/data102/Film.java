@@ -5,7 +5,7 @@ public class Film {
 	private int filmnr;
 	private String filmskaper;
 	private String tittel;
-	private int år;
+	private int aar;
 	private String filmSelskap;
 	Sjanger sjangeren;
 	
@@ -33,12 +33,12 @@ public class Film {
 		this.tittel = tittel;
 	}
 
-	public int getÅr() {
-		return år;
+	public int getAar() {
+		return aar;
 	}
 
-	public void setÅr(int år) {
-		this.år = år;
+	public void setAar(int aar) {
+		this.aar = aar;
 	}
 
 	public String getFilmSelskap() {
@@ -54,19 +54,19 @@ public class Film {
 		
 	}
 	
-	public Film(int filmnr, String filmskaper, String tittel, int år, String filmSelskap, String Sjangeren) 
+	public Film(int filmnr, String filmskaper, String tittel, int aar, String filmSelskap, String Sjangeren) 
 	{
 		this.filmnr = filmnr;
 		this.filmskaper = filmskaper;
 		this.tittel = tittel;
-		this.år = år;
+		this.aar = aar;
 		this.filmSelskap = filmSelskap;
 		sjangeren = sjangeren.valueOf(Sjangeren);
 	}
 
 	@Override
 	public String toString() {
-		return "Film [filmnr=" + filmnr + ", filmskaper=" + filmskaper + ", tittel=" + tittel + ", år=" + år
+		return "Film [filmnr=" + filmnr + ", filmskaper=" + filmskaper + ", tittel=" + tittel + ", aar=" + aar
 				+ ", filmSelskap=" + filmSelskap + ", sjangeren=" + sjangeren + "]";
 	}
 	
