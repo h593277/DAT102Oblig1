@@ -74,8 +74,8 @@ public class Film {
 
 	@Override
 	public String toString() {
-		return "Film [filmnr=" + filmnr + ", filmskaper=" + filmskaper + ", tittel=" + tittel + ", aar=" + aar
-				+ ", filmSelskap=" + filmSelskap + ", sjangeren=" + sjangeren + "]";
+		return "Film [filmnr=" + filmnr + "#" + ", filmskaper=" + filmskaper + "#" + ", tittel=" + tittel + "#" + ", aar=" + aar + "#"
+				+ ", filmSelskap=" + filmSelskap + "#" + ", sjangeren=" + sjangeren + "]";
 	}
 	
 	

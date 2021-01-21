@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Fil {
 	
-	final String SKILLE = "#";
+	final static String SKILLE = "#";
 	
 	
 	public void SkrivtilFil(String filnavn, FilmArkiv filmtabell)
@@ -42,7 +42,30 @@ public class Fil {
 	
 	public static FilmArkiv arkivfraFil(String navn)
 	{
-		FilmArkiv filma = new FilmArkiv(100);
+		Film[] filmer = new Film[100];
+		int antall = 0;
+		Scanner filmFilLeser = new Scanner(navn);
+		while(filmFilLeser.hasNext())
+		{
+			//Ikke lagt til løsning med String.split her, må oppdatere
+			
+				filmer[antall].setFilmnr(filmFilLeser.nextInt());
+				filmer[antall].setFilmskaper(filmFilLeser.nextLine());
+				filmer[antall].setTittel(filmFilLeser.nextLine());
+				filmer[antall].setAar(filmFilLeser.nextInt());
+				filmer[antall].setFilmSelskap(filmFilLeser.nextLine());
+				//filmer[antall].setSjangeren(filmFilLeser.nextLine()); Fikser denne senere.
+				antall++;
+		
+		}
+		filmFilLeser.close();
+		
+		FilmArkiv filma = new FilmArkiv(100); 
+		for(Film f : filmer)
+		{
+			filma.leggTil(f);
+		}
+		
 		
 		return filma;
 	}
