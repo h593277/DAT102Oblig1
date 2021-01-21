@@ -1,27 +1,22 @@
 package no.hvl.data102;
 
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
 public class Fil {
 	
-	Film[] filmtilFil;
-	File filmFil = new File("Filmarkiv.txt");
-	
-	public Fil(FilmArkiv filmer)
-	{
-		filmtilFil = filmer.filmArkivet;
-	}
+	final String SKILLE = "#";
 	
 	
-	public void SkrivtilFil()
+	public void SkrivtilFil(String filnavn, FilmArkiv filmtabell)
 	{
 		try
 		{
-			FileWriter filmFilSkriver = new FileWriter(filmFil);
-			for(Film f : filmtilFil)
+			FileWriter filmFilSkriver = new FileWriter(filnavn);
+			
+		
+			for(Film f : filmtabell.filmArkivet)
 			{
 				filmFilSkriver.write(f.toString());
 			}
@@ -33,21 +28,23 @@ public class Fil {
 		}
 	}
 	
-	public void LesavFil() 
+	public void LesavFil(String filnavn) 
 	{
-		try
-		{
-			Scanner filmFilLeser = new Scanner(filmFil);
+		
+			Scanner filmFilLeser = new Scanner(filnavn);
 			while(filmFilLeser.hasNext())
 			{
 				System.out.println(filmFilLeser.next());
 			}
 			filmFilLeser.close();
-		}
-		catch(IOException e)
-		{
-			System.out.println("Ioexception");
-		}
+		
+	}
+	
+	public static FilmArkiv arkivfraFil(String navn)
+	{
+		FilmArkiv filma = new FilmArkiv(100);
+		
+		return filma;
 	}
 	
 	

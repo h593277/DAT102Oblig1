@@ -11,8 +11,13 @@ public class FilmArkiv implements FilmArkivADT {
 	  filmArkivet = new Film[n];
 	}
 	
+	public Film[] getFilmArkiv()
+	{
+		return filmArkivet;
+	}
+	
 	@Override
-	public boolean LeggTil(Film filmen) {
+	public boolean leggTil(Film filmen) {
 		
 		boolean lagtTil = false;
 		
@@ -39,7 +44,7 @@ public class FilmArkiv implements FilmArkivADT {
 	}
 
 	@Override
-	public boolean SlettFilm(Film filmen) {
+	public boolean slettFilm(Film filmen) {
 		boolean slettet = false;
 		
 		for(int i = 0; i < filmArkivet.length; i++)
@@ -56,7 +61,7 @@ public class FilmArkiv implements FilmArkivADT {
 	}
 
 	@Override
-	public Film FinnFilm(String tittel) {
+	public Film finnFilm(String tittel) {
 		for(Film finn : filmArkivet)
 		{
 			if(finn.getTittel().contains(tittel))
@@ -68,7 +73,7 @@ public class FilmArkiv implements FilmArkivADT {
 	}
 
 	@Override
-	public String FinnProdusent(String produsent) {
+	public String finnProdusent(String produsent) {
 		for(Film finn : filmArkivet)
 		{
 			if(finn.getTittel().contains(produsent))
@@ -78,9 +83,24 @@ public class FilmArkiv implements FilmArkivADT {
 		}
 		return null;
 	}
+	
+	@Override
+	public int antallSjanger(Sjanger sjanger)
+	{
+		int sjangerAntall = 0;
+		for(Film f : filmArkivet)
+		{
+			if(f.getSjangeren() == sjanger)
+			{
+				sjangerAntall++;
+			}
+		}
+		
+		return sjangerAntall;
+	}
 
 	@Override
-	public int AntallFilmer() {
+	public int antallFilmer() {
 
 		return filmArkivet.length-1;
 	}

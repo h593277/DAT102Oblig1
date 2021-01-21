@@ -9,6 +9,14 @@ public class Film {
 	private String filmSelskap;
 	Sjanger sjangeren;
 	
+	public Sjanger getSjangeren() {
+		return sjangeren;
+	}
+
+	public void setSjangeren(Sjanger sjangeren) {
+		this.sjangeren = sjangeren;
+	}
+
 	public int getFilmnr() {
 		return filmnr;
 	}

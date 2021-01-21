@@ -1,19 +1,22 @@
 package no.hvl.data102.adt;
 
 import no.hvl.data102.Film;
+import no.hvl.data102.Sjanger;
 
 public interface FilmArkivADT {
 	
 	
-	boolean LeggTil(Film filmen);
+	boolean leggTil(Film filmen);
 	
-	boolean SlettFilm(Film filmen);
+	boolean slettFilm(Film filmen);
 	
-	Film FinnFilm(String tittel);
+	Film finnFilm(String tittel);
 	
-	String FinnProdusent(String produsent);
+	String finnProdusent(String produsent);
 	
-	int AntallFilmer();
+	int antallSjanger(Sjanger sjanger);
+	
+	int antallFilmer();
 
 		
 	
