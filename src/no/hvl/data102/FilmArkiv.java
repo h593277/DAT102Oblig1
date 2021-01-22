@@ -102,7 +102,7 @@ public class FilmArkiv implements FilmArkivADT {
 	@Override
 	public int antallFilmer() {
 
-		return filmArkivet.length-1;
+		return filmArkivet.length;
 	}
 
 }
