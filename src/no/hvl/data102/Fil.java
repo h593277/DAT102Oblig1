@@ -4,19 +4,21 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
+import no.hvl.data102.adt.FilmArkivADT;
+
 public class Fil {
 	
 	final static String SKILLE = "#";
 	
 	
-	public void SkrivtilFil(String filnavn, FilmArkiv filmtabell)
+	public void SkrivtilFil(String filnavn, FilmArkivADT filmtabell)
 	{
 		try
 		{
 			FileWriter filmFilSkriver = new FileWriter(filnavn);
 			
 		
-			for(Film f : filmtabell.filmArkivet)
+			for(Film f : filmtabell.getFilmArkiv())
 			{
 				filmFilSkriver.write(f.toString());
 			}

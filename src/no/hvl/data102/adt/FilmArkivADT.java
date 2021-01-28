@@ -17,6 +17,8 @@ public interface FilmArkivADT {
 	int antallSjanger(Sjanger sjanger);
 	
 	int antallFilmer();
+	
+	public Film[] getFilmArkiv();
 
 		
 	

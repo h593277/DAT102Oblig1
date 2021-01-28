@@ -51,8 +51,8 @@ public class FilmArkiv implements FilmArkivADT {
 		{
 			if(filmArkivet[i].equals(filmen))
 			{
-				filmArkivet[i] = filmArkivet[antall];
-				filmArkivet[antall] = null;
+				filmArkivet[i] = filmArkivet[antall-1];
+				filmArkivet[antall-1] = null;
 				antall--;
 				slettet = true;
 			}
