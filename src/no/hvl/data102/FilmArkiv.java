@@ -73,10 +73,10 @@ public class FilmArkiv implements FilmArkivADT {
 	}
 
 	@Override
-	public String finnProdusent(String produsent) {
+	public String finnProdusent(String tittel) {
 		for(Film finn : filmArkivet)
 		{
-			if(finn.getTittel().contains(produsent))
+			if(finn.getTittel().contains(tittel))
 			{
 				return finn.getFilmskaper();
 			}

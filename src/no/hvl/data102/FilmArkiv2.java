@@ -53,7 +53,7 @@ public class FilmArkiv2 implements FilmArkivADT {
 			}
 		}
 		
-		
+		//Tabell implementasjon under, kjører, men tenkte å teste Iterator
 		//for(Film finn : filmArkivet)
 		//{
 			//if(finn.getTittel().contains(tittel))
