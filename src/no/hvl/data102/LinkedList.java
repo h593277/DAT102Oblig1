@@ -2,10 +2,20 @@ package no.hvl.data102;
 
 import java.util.Iterator;
 
-public class LinkedList<T> {
+public class LinkedList<T> implements Iterable<T> {
 
 	private Node head;
 	private int antall = 0;
+	
+	public Iterator<T> iterator()
+	{
+		return new kjedetIterator<T>(this);
+	}
+	
+	public Node getHead()
+	{
+		return head;
+	}
 	
 	
 	public Object[] arrayKonvertering()
@@ -22,7 +32,7 @@ public class LinkedList<T> {
 	}
 	
 	
-	public void insert(T data)
+	public void settInn(T data)
 	{
 		Node newNode = new Node(data);
 		newNode.nextNode = null;
@@ -46,7 +56,7 @@ public class LinkedList<T> {
 		
 	}
 	
-	public boolean remove(T data)
+	public boolean fjern(T data)
 	{
 		boolean removed = false;
 		Node previousNode = null;
@@ -75,7 +85,7 @@ public class LinkedList<T> {
 		return removed;
 	}
 	
-	public boolean find(T data)
+	public boolean finn(T data)
 	{
 		boolean exist = false;
 		Node currNode = head;
@@ -115,33 +125,35 @@ public class LinkedList<T> {
 		return antall;
 	}
 	
-	class KjedetIterator<T> implements Iterable<T>
+	class kjedetIterator<T> implements Iterator<T>
 	{
+		Node<T> curr;
+		public kjedetIterator(LinkedList<T> liste)
+		{
+			curr = liste.getHead();
+		}
+		
+
+		
 		@Override
 		public boolean hasNext() {
-			Node current = head;
-			return current != null;
+			return curr != null;
 			
 		}
 
 
 		@Override
 		public T next() {
-			Node current = head;	
-			if(current.nextNode != null)
+			if(curr.nextNode != null)
 			{
-				T data = current.data;
-				current = current.nextNode;
+				T data = curr.data;
+				curr = curr.nextNode;
 				return data;
 			}
 			return null;
 		}
 
-		@Override
-		public java.util.Iterator<T> iterator() {
-			Iterator<T> t = new Iterator<T>();
-			return t;
-		}
+		
 
 	}
 

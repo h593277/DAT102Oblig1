@@ -9,7 +9,7 @@ public class FilmArkiv2 implements FilmArkivADT {
 	
 	public Film[] getFilmArkiv()
 	{
-		Film[] tabellArkiv = filmArkivet.arrayKonvertering();
+		Film[] tabellArkiv = (Film[]) filmArkivet.arrayKonvertering();
 		
 		return tabellArkiv;
 	}
@@ -19,7 +19,7 @@ public class FilmArkiv2 implements FilmArkivADT {
 		
 		boolean lagtTil = false;
 		
-			filmArkivet.insert(filmen);
+			filmArkivet.settInn(filmen);
 			antall++;
 			lagtTil = true;
 
@@ -31,9 +31,9 @@ public class FilmArkiv2 implements FilmArkivADT {
 	public boolean slettFilm(Film filmen) {
 		boolean slettet = false;
 		  		
-		if(filmArkivet.find(filmen))
+		if(filmArkivet.finn(filmen))
 		  		{
-		  			filmArkivet.remove(filmen);
+		  			filmArkivet.fjern(filmen);
 		  			slettet = true;
 		  		}
 		
@@ -43,25 +43,36 @@ public class FilmArkiv2 implements FilmArkivADT {
 	@Override
 	public Film finnFilm(String tittel) {
 			
-		
-		for(Film finn : filmArkivet)
+		Film finne;
+		while(filmArkivet.iterator().hasNext())
 		{
-			if(finn.getTittel().contains(tittel))
+			finne = (Film) filmArkivet.getHead().data;
+			if(finne.getTittel().contains(tittel))
 			{
-				return finn;
+				return finne;
 			}
 		}
+		
+		
+		//for(Film finn : filmArkivet)
+		//{
+			//if(finn.getTittel().contains(tittel))
+			//{
+			//	return finn;
+			//}
+		//}
+		
 		return null;
 	}
 
 	@Override
-	public String finnProdusent(String produsent) {
+	public String finnProdusent(String filmen) {
 		
 	
 		
 		for(Film finn : filmArkivet)
 		{
-			if(finn.getTittel().contains(produsent))
+			if(finn.getTittel().contains(filmen))
 			{
 				return finn.getFilmskaper();
 			}
