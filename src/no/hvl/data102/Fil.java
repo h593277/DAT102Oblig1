@@ -20,7 +20,8 @@ public class Fil {
 		
 			for(Film f : filmtabell.getFilmArkiv())
 			{
-				filmFilSkriver.write(f.toString());
+				String film = f.getFilmnr() + SKILLE + f.getFilmskaper() + SKILLE + f.getTittel() + SKILLE + f.getAar() + SKILLE + f.getFilmSelskap() + SKILLE + f.getSjangeren();
+				filmFilSkriver.write(film);
 			}
 			filmFilSkriver.close();
 		}
@@ -44,30 +45,19 @@ public class Fil {
 	
 	public static FilmArkiv arkivfraFil(String navn)
 	{
-		Film[] filmer = new Film[100];
-		int antall = 0;
+		
+		FilmArkiv filma = new FilmArkiv(100);
 		Scanner filmFilLeser = new Scanner(navn);
-		while(filmFilLeser.hasNext())
+		while(filmFilLeser.hasNextLine())
 		{
-			//Ikke lagt til løsning med String.split her, må oppdatere
+			String filmString = filmFilLeser.nextLine();
+			String[] film = filmString.split(SKILLE);
 			
-				filmer[antall].setFilmnr(filmFilLeser.nextInt());
-				filmer[antall].setFilmskaper(filmFilLeser.nextLine());
-				filmer[antall].setTittel(filmFilLeser.nextLine());
-				filmer[antall].setAar(filmFilLeser.nextInt());
-				filmer[antall].setFilmSelskap(filmFilLeser.nextLine());
-				//filmer[antall].setSjangeren(filmFilLeser.nextLine()); Fikser denne senere.
-				antall++;
+			filma.leggTil(new Film(Integer.parseInt(film[0]), film[1], film[2], Integer.parseInt(film[3]), film[4], film[5]));
+			
 		
 		}
 		filmFilLeser.close();
-		
-		FilmArkiv filma = new FilmArkiv(100); 
-		for(Film f : filmer)
-		{
-			filma.leggTil(f);
-		}
-		
 		
 		return filma;
 	}
