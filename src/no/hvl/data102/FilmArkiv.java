@@ -21,6 +21,12 @@ public class FilmArkiv implements FilmArkivADT {
 		
 		boolean lagtTil = false;
 		
+		for(int i=0;i<filmArkivet.length;i++) {
+			if (filmArkivet[i]==filmen) {
+				return lagtTil;			
+			}
+		}
+		
 		if(antall < filmArkivet.length)
 		{
 			filmArkivet[antall] = filmen;
@@ -102,7 +108,7 @@ public class FilmArkiv implements FilmArkivADT {
 	@Override
 	public int antallFilmer() {
 
-		return filmArkivet.length;
+		return antall;
 	}
 
 }
