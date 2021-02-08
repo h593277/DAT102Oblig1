@@ -17,14 +17,14 @@ public class LinkedList<T> implements Iterable<T> {
 		return head;
 	}
 	
-	
-	public Object[] arrayKonvertering()
+	//Ble dessverre bandaid løsning å gjøre den til film
+	public Film[] arrayKonvertering()
 	{
-		Object[] array = new Object[antall];
+		Film[] array = new Film[antall];
 		Node currNode = head;
 		for(int i = 0; i < antall; i++)
 		{
-				array[i] = currNode;
+				array[i] = (Film) currNode.data;
 				currNode = currNode.nextNode;
 		}
 		

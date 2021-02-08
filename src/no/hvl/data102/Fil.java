@@ -15,9 +15,8 @@ public class Fil {
 	{
 		try
 		{
-			FileWriter filmFilSkriver = new FileWriter(filnavn);
-			
-		
+			FileWriter filmFilSkriver = new FileWriter(filnavn + ".txt");
+	
 			for(Film f : filmtabell.getFilmArkiv())
 			{
 				String film = f.getFilmnr() + SKILLE + f.getFilmskaper() + SKILLE + f.getTittel() + SKILLE + f.getAar() + SKILLE + f.getFilmSelskap() + SKILLE + f.getSjangeren();
@@ -34,7 +33,7 @@ public class Fil {
 	public void LesavFil(String filnavn) 
 	{
 		
-			Scanner filmFilLeser = new Scanner(filnavn);
+			Scanner filmFilLeser = new Scanner(filnavn + ".txt");
 			while(filmFilLeser.hasNext())
 			{
 				System.out.println(filmFilLeser.next());
@@ -47,7 +46,7 @@ public class Fil {
 	{
 		
 		FilmArkiv filma = new FilmArkiv(100);
-		Scanner filmFilLeser = new Scanner(navn);
+		Scanner filmFilLeser = new Scanner(navn + ".txt");
 		while(filmFilLeser.hasNextLine())
 		{
 			String filmString = filmFilLeser.nextLine();
