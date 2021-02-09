@@ -41,20 +41,11 @@ public class FilmArkiv2 implements FilmArkivADT {
 
 		Film finne;
 		while (filmArkivet.iterator().hasNext()) {
-			finne = (Film) filmArkivet.getHead().data;
+			finne = (Film) filmArkivet.getHead().getData();
 			if (finne.getTittel().contains(tittel)) {
 				return finne;
 			}
 		}
-
-		// Tabell implementasjon under, kjører, men tenkte å teste Iterator
-		// for(Film finn : filmArkivet)
-		// {
-		// if(finn.getTittel().contains(tittel))
-		// {
-		// return finn;
-		// }
-		// }
 
 		return null;
 	}

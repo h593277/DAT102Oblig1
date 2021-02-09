@@ -4,7 +4,7 @@ import java.util.Iterator;
 
 public class LinkedList<T> implements Iterable<T> {
 
-	private Node head;
+	private Node<T> head;
 	private int antall = 0;
 	
 	public Iterator<T> iterator()
@@ -12,7 +12,7 @@ public class LinkedList<T> implements Iterable<T> {
 		return new kjedetIterator<T>(this);
 	}
 	
-	public Node getHead()
+	public Node<T> getHead()
 	{
 		return head;
 	}
@@ -21,11 +21,11 @@ public class LinkedList<T> implements Iterable<T> {
 	public Film[] arrayKonvertering()
 	{
 		Film[] array = new Film[antall];
-		Node currNode = head;
+		Node<T> currNode = head;
 		for(int i = 0; i < antall; i++)
 		{
-				array[i] = (Film) currNode.data;
-				currNode = currNode.nextNode;
+				array[i] = (Film) currNode.getData();
+				currNode = currNode.getNextNode();
 		}
 		
 		return array;
@@ -34,8 +34,8 @@ public class LinkedList<T> implements Iterable<T> {
 	
 	public void settInn(T data)
 	{
-		Node newNode = new Node(data);
-		newNode.nextNode = null;
+		Node<T> newNode = new Node(data);
+		newNode.setNextNode(null);
 		
 		if(head == null)
 		{
@@ -43,13 +43,13 @@ public class LinkedList<T> implements Iterable<T> {
 		}
 		else
 		{
-			Node last = head;
-			while(last.nextNode != null)
+			Node<T> last = head;
+			while(last.getNextNode() != null)
 			{
-				last = last.nextNode;
+				last = last.getNextNode();
 			}
 			
-			last.nextNode = newNode;
+			last.setNextNode(newNode);
 		}
 		antall++;
 		
@@ -59,19 +59,19 @@ public class LinkedList<T> implements Iterable<T> {
 	public boolean fjern(T data)
 	{
 		boolean removed = false;
-		Node previousNode = null;
-		Node currNode = head;
+		Node<T> previousNode = null;
+		Node<T> currNode = head;
 
-		if(currNode != null && currNode.data == data)
+		if(currNode != null && currNode.getData() == data)
 		{
-			head = currNode.nextNode;
+			head = currNode.getNextNode();
 			removed = true;
 		}
 	
-		while(currNode != null && currNode.data != data)
+		while(currNode != null && currNode.getData() != data)
 		{
 			previousNode = currNode;
-			currNode = currNode.nextNode;
+			currNode = currNode.getNextNode();
 		}
 		
 		if(currNode != null)
@@ -79,7 +79,7 @@ public class LinkedList<T> implements Iterable<T> {
 			removed = true;
 			antall--;
 		}
-		previousNode.nextNode = currNode.nextNode;
+		previousNode.setNextNode(currNode.getNextNode());
 	
 		
 		return removed;
@@ -88,17 +88,17 @@ public class LinkedList<T> implements Iterable<T> {
 	public boolean finn(T data)
 	{
 		boolean exist = false;
-		Node currNode = head;
+		Node<T> currNode = head;
 	
 		for(int i = 0; i < antall; i++)
 		{
-			if(currNode.data == data)
+			if(currNode.getData() == data)
 			{
 				exist = true;
 			}
 			else
 			{
-				currNode = currNode.nextNode;
+				currNode = currNode.getNextNode();
 			}
 		}
 	
@@ -109,14 +109,14 @@ public class LinkedList<T> implements Iterable<T> {
 	
 	public void printList()
 	{
-		Node currNode = head;
+		Node<T> currNode = head;
 		
 		System.out.println("Linked List: ");
 		
 		while(currNode != null)
 		{
-			System.out.println(currNode.data + " ");
-			currNode = currNode.nextNode;
+			System.out.println(currNode.getData() + " ");
+			currNode = currNode.getNextNode();
 		}
 	}
 	
@@ -144,10 +144,10 @@ public class LinkedList<T> implements Iterable<T> {
 
 		@Override
 		public T next() {
-			if(curr.nextNode != null)
+			if(curr.getNextNode() != null)
 			{
-				T data = curr.data;
-				curr = curr.nextNode;
+				T data = curr.getData();
+				curr = curr.getNextNode();
 				return data;
 			}
 			return null;
