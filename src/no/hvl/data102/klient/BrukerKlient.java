@@ -18,8 +18,9 @@ public class BrukerKlient {
 		//FilmArkivADT filmArkivet2 = new FilmArkiv(100);
 		//FilmArkivADT filmArkivetLinked = new FilmArkiv2();
 	
-		//Film test = new Film(1, "Jackson", "Lord of the Rings: Fellowship of the Ring", 1999, "New Line Cinema", "FANTASY");
-		//filmArkivet.leggTil(test);
+		Film test = new Film(1, "Jackson", "Lord of the Rings: Fellowship of the Ring", 1999, "New Line Cinema", "FANTASY");
+		filmArkivet.leggTil(test);
+		//System.out.println(filmArkivet.finnFilm("Lord of the Rings: Fellowship of the Ring").toString());
 		
 		//filmArkivetLinked.leggTil(test);
 	
@@ -29,7 +30,6 @@ public class BrukerKlient {
 		
 	
 		menyen.start();
-		
 		
 
 	}
