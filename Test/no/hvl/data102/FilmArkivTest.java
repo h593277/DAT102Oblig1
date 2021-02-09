@@ -1,11 +1,8 @@
-package hvl.no.dat102.test;
+package no.hvl.data102;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 
-import no.hvl.data102.Film;
-import no.hvl.data102.FilmArkiv;
-import no.hvl.data102.Sjanger;
 import no.hvl.data102.adt.FilmArkivADT;
 
 public class FilmArkivTest {
