@@ -34,7 +34,7 @@ public class LinkedList<T> implements Iterable<T> {
 	
 	public void settInn(T data)
 	{
-		Node<T> newNode = new Node(data);
+		Node<T> newNode = new Node<T>(data);
 		newNode.setNextNode(null);
 		
 		if(head == null)

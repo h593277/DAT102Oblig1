@@ -5,6 +5,7 @@ import no.hvl.data102.Sjanger;
 
 public interface FilmArkivADT {
 	
+
 	 /**
 	   * 
 	   * @param legger til film
