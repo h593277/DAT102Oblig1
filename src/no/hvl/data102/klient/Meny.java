@@ -22,12 +22,15 @@ public class Meny {
 	{
 		Film filmInput = new Film();
 		
+		
 		filmInput.setFilmnr(Integer.parseInt(JOptionPane.showInputDialog("Skriv inn filmnummer")));
 		filmInput.setTittel(JOptionPane.showInputDialog("Skriv inn film tittel"));
 		filmInput.setFilmskaper(JOptionPane.showInputDialog("Skriv inn filmskaper"));
 		filmInput.setAar(Integer.parseInt(JOptionPane.showInputDialog("Skriv aaret filmen kom ut")));
 		filmInput.setFilmSelskap(JOptionPane.showInputDialog("Skriv inn selskapet som produserte filmen"));
-		filmInput.setSjangeren(Sjanger.valueOf(JOptionPane.showInputDialog("Skriv inn sjanger til filmen, den er case sensitiv!")));
+		Sjanger filmSjanger = (Sjanger) JOptionPane.showInputDialog(null, "Velg Sjanger", "Sjangre", JOptionPane.QUESTION_MESSAGE, null, Sjanger.values(), Sjanger.ACTION);
+		filmInput.setSjangeren(filmSjanger);
+		
 		
 		return filmInput;
 	}
