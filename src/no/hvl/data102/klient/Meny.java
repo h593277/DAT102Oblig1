@@ -18,7 +18,7 @@ public class Meny {
 		this.filma = filmArkivet;
 	}
 	
-	public Film OpprettFilm()
+	public Film opprettFilm()
 	{
 		Film filmInput = new Film();
 		
@@ -39,27 +39,46 @@ public class Meny {
 	{
 		Fil filen = new Fil();
 		
-		
-		String s = JOptionPane.showInputDialog("Skriv in onsket operasjon: lese, skrive, filmarkiv, avslutt");
-		if(s.equals("lese"))
+		String[] operasjoner = {"Lese", "Skrive", "Opprett filmarkiv", "Statistikk", "Avslutt"}; 
+		String s = (String) JOptionPane.showInputDialog(null, "Velg operasjon", "Operasjoner", JOptionPane.QUESTION_MESSAGE, null, operasjoner, operasjoner[0]);
+		if(s.equals("Lese"))
 		{
 			String l = JOptionPane.showInputDialog("Skriv in navnet på filmarkivet du lese");
-			filen.LesavFil(l);
+			filen.lesavFil(l);
 			
 		}
-		else if(s.equals("skrive"))
+		else if(s.equals("Skrive"))
 		{
-			Film f = OpprettFilm();
+			Film f = opprettFilm();
 			filma.leggTil(f);
 			String a = JOptionPane.showInputDialog("Skriv in navnet på filen du vil skrive til/opprette .txt blir lagt til automatisk");
-			filen.SkrivtilFil(a, filma);
+			filen.skrivtilFil(a, filma);
 		}
-		else if(s.equals("filmarkiv"))
+		else if(s.equals("Opprett filmarkiv"))
 		{
 			String fa = JOptionPane.showInputDialog("Skriv in navnet på filen du vil konvertere til filmarkiv");
-			filen.arkivfraFil(fa);
+			filma = filen.arkivfraFil(fa);
 		}
-		else if(s.equals("avslutt"))
+		else if(s.equals("Statistikk"))
+		{
+			String[] valg = {"Filmer", "Produsenter", "Film Statistikk"}; 
+			String filmStatistikk = (String) JOptionPane.showInputDialog(null, "Velg statistikk", "Statistikk", JOptionPane.QUESTION_MESSAGE, null, valg, valg[0]);
+			
+			switch(filmStatistikk)
+			{
+			case "Filmer":
+			
+				String ft = JOptionPane.showInputDialog("Skriv in deltittel du vil soke paa");
+				grenseSnitt.skrivUtFilmer(ft, filma);
+				break;
+			case "Produsenter":
+				String fp = JOptionPane.showInputDialog("Skriv in produsent du vil soke paa");
+				grenseSnitt.produsentFilmer(fp, filma);
+			case "Film Statistikk":
+				grenseSnitt.filmStatistikk(filma);
+			}
+		}
+		else if(s.equals("Avslutt"))
 		{
 			System.exit(0);
 		}

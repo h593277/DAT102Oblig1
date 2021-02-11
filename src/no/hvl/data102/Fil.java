@@ -12,7 +12,7 @@ public class Fil {
 	
 	final static String SKILLE = "#";
 	
-	public void SkrivtilFil(String filnavn, FilmArkivADT filmtabell)
+	public void skrivtilFil(String filnavn, FilmArkivADT filmtabell)
 	{
 		try
 		{
@@ -35,7 +35,7 @@ public class Fil {
 		
 	}
 	
-	public void LesavFil(String filnavn) 
+	public void lesavFil(String filnavn) 
 	{
 		
 			Scanner filmFilLeser;
@@ -53,7 +53,7 @@ public class Fil {
 			}
 	}
 	
-	public static FilmArkiv arkivfraFil(String navn)
+	public static FilmArkivADT arkivfraFil(String navn)
 	{
 		
 		FilmArkiv filma = new FilmArkiv(100);
