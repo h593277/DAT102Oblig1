@@ -24,7 +24,6 @@ public class Fil {
 							SKILLE + f[i].getFilmSelskap() + SKILLE + f[i].getSjangeren() + "\n";
 				System.out.print(film);
 				filmFilSkriver.write(film);
-				System.out.println("Antall ganger kjørt: " + (i+1));
 			}
 			filmFilSkriver.close();
 		}
